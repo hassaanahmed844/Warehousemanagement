@@ -8,38 +8,42 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <header style="color: #2B466B">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="color: #2B466B">
             <img src="~/Asset 2.png" width="80px" />
             <div class="container">
 
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Ware House Management</a>
+                @*<a class="navbar-brand" asp-area="" asp-page="/Index">Ware House Management</a>*@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Products</a>
-                        </li>
+                <center>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Items/Index">Items</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Warehouses/Index">Ware House</a>
-                        </li>
-                    </ul>
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Products</a>
+                            </li>
 
 
-                </div>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Items/Index">Items</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Warehouses/Index">Ware House</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </center>
             </div>
         </nav>
     </header>
@@ -51,9 +55,13 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Warehousemanagement - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+        <center>
+            <div class="container">
+                &copy; 2021 - Wareousemanagementsystm
+            </div>
+        </center>
+        
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -73,5 +81,10 @@
         font-weight:bold;
         color:darkslateblue;
     }
+
+    a:hover{
+        color:darkslateblue;
+    }
+
 </style>
 </html>
