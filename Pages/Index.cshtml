@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <table width="100%">
 
     <tr>
@@ -12,6 +13,40 @@
         </td>
         <td><img class="imgb" src="~/Asset 1.png"width="500px"></td>
     </tr>
+  
+</table>
+
+<table  width="100%" align="center">
+
+    <tr>
+        
+        <td>
+            <center>
+                <h5>Number of Products</h5>
+                @Model.ProductCount
+            </center>
+
+
+        </td>
+        <td>
+            <center>
+                <h5>Number of Items</h5>
+                @Model.ItemCount
+
+            </center>
+
+        </td>
+        <td>
+            <center>
+                <h5>Number of WareHouses</h5>
+                @Model.WarehouseCount
+            </center>
+
+        </td>
+
+
+
+    </tr>
 </table>
 
 <style>
@@ -19,7 +54,14 @@
         color: #2b466b;
     }
 
-
+    h5 {
+        background-color: #2b466b;
+        color:white;
+        font-weight:bold;
+    }
+    td{
+        font-weight:bold
+    }
 </style>
 
 
