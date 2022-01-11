@@ -20,14 +20,28 @@
         background-color: #202f44;
     }
 
+    .searchbtn {
+        text-align: center;
+        margin-left: 2%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 18px;
+        padding-right: 18px;
+        text-decoration: none;
+        border-radius: 23px;
+        color: white;
+        text-decoration: none;
+        background-color: #202f44;
+    }
 
-        .create:hover {
-            color: white;
-            text-decoration: none;
-            background-color: #2B466B;
-            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        }
+
+    .create:hover {
+        color: white;
+        text-decoration: none;
+        background-color: #2B466B;
+        box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
 </style>
 
 
@@ -36,10 +50,15 @@
 
 <h1 style="color: #2B466B">Products</h1>
 
+<div>
 
-    <a class="create" asp-page="Create">Add New</a>
 
-    
+    <form action="" method="post">
+        <input type="type" name="name" value="" asp-for="@Model.Name"style="border-radius: 23px" />
+        <input type="submit" name="name" value="Search" asp-route-Name="@Model.Name" asp-route-task="Search" class="searchbtn" />
+    </form>
+</div>
+<a class="create" asp-page="Create">Add New</a>
 
 <table class="table">
     <thead>
@@ -66,32 +85,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Product) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Length)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Height)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id"><img src="~/icons8-edit-24.png" /></a> 
-                <a asp-page="./Details" asp-route-id="@item.Id"><img src="~/icons8-details-24.png" /></a>
-                <a asp-page="./Delete" asp-route-id="@item.Id"> <img src="~/icons8-delete-24.png" /></a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Product)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><img src="~/icons8-edit-24.png" /></a>
+                    <a asp-page="./Details" asp-route-id="@item.Id"><img src="~/icons8-details-24.png" /></a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id"> <img src="~/icons8-delete-24.png" /></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

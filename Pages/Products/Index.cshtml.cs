@@ -19,11 +19,20 @@ namespace Warehousemanagement.Pages.Products
             _context = context;
         }
 
+        public string Name { get; set; }
         public IList<Product> Product { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string Name, string task)
         {
-            Product = await _context.Product.ToListAsync();
+            if (task == "Search")
+                Product = await _context.Product.Where(m => m.Name.ToLower() == Name.ToLower()).ToListAsync();
+            else
+                Product = await _context.Product.ToListAsync();
+        }
+        public async Task<IActionResult> OnPostAsync(string Name, string task)
+        {
+
+            return RedirectToPage("",new{ Name = Name, task=task});
         }
     }
 }
