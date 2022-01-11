@@ -1,90 +1,80 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - Warehousemanagement</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .side-menu {
+            width: 220px;
+            height: 768px;
+            box-sizing: border-box;
+            background: #131e33;
+            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+
+        nav a {
+            padding: 12px;
+            display: block;
+            text-decoration: none;
+            color: white;
+            position: relative;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+            nav a:hover {
+                color: #2B466B;
+                text-decoration: none;
+                font-weight:bold;
+                background-color: white;
+                transition: 1.3s;
+                
+            }
+
+
+           
+    </style>
 </head>
 <body>
-    <header style="color: #2B466B">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="color: #2B466B">
-            <img src="~/Asset 2.png" width="80px" />
-            <div class="container">
+    <div  class="row">
+        <div class="side-menu">
 
-                @*<a class="navbar-brand" asp-area="" asp-page="/Index">Ware House Management</a>*@
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <center>
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <nav style=" padding-left: 20px">
+                <h6 style="padding-top:30px;color:white">Ware House Management</h6>
+                <a asp-page="/Index"><i class="nav a  "></i><img src="~/icons8_home_page_24px_1.png"> Dashboard</a>
+                <a asp-page="/Products/Index"><i class="nav a "></i><img src="~/icons8_product_24px_1.png"> Products</a>
+                <a asp-page="/Items/Index"><i class="nav a "></i><img src="~/icons8_list_24px_1.png"> Items</a>
+                <a asp-page="/Warehouses/Index"><i class="nav a"></i><img src="~/icons8_warehouse_24px_6.png"> Ware House</a>
 
+            </nav>
+        </div>
 
-
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Products</a>
-                            </li>
+        <div class="col-10 ">
+            <main role="main" class="pb-3" style="margin-top: 3%; margin-left: 3%; color: #2B466B ">
+                @RenderBody()
+            </main>
+        </div>
 
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Items/Index">Items</a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Warehouses/Index">Ware House</a>
-                            </li>
-                        </ul>
-
-
-                    </div>
-                </center>
-            </div>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
     </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await Component.InvokeAsync("Notyf")
+        @await RenderSectionAsync("Scripts", required: false)
 
-    <footer class="border-top footer text-muted">
-        <center>
-            <div class="container">
-                &copy; 2021 - Wareousemanagementsystm
-            </div>
-        </center>
-        
-
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
-
-
-<style>
-    .a{
-        color:darkslateblue;
-    }
-    .navbar-brand{
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight:bold;
-        color:darkslateblue;
-    }
-
-    a:hover{
-        color:darkslateblue;
-    }
-
-</style>
 </html>

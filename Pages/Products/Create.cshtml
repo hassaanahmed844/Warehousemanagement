@@ -5,14 +5,25 @@
     ViewData["Title"] = "Create";
 }
 
+<style>
+    .buttoncolor {
+        margin-top:30px;
+        margin-left:270px;
+        
+    }
+</style>
+<div>
+    <a style="padding:23px;" asp-page="Index">Back to List</a>
+</div>
 <h1 style="color: #2B466B">Create</h1>
 
 <h4 style="color: #2B466B">Product</h4>
 <hr />
-<div class="row" style="color: #2B466B">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div style="color: #2B466B">
+   
+    <form class="row" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Product.Name" class="control-label"></label>
                 <input asp-for="Product.Name" class="form-control" />
@@ -23,6 +34,14 @@
                 <input asp-for="Product.Description" class="form-control" />
                 <span asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Product.Length" class="control-label"></label>
                 <input asp-for="Product.Length" class="form-control" />
@@ -38,21 +57,17 @@
                 <input asp-for="Product.Height" class="form-control" />
                 <span asp-validation-for="Product.Height" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.Price" class="control-label"></label>
-                <input asp-for="Product.Price" class="form-control" />
-                <span asp-validation-for="Product.Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group buttoncolor">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
-</div>
+        </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+    </form>
+    </div>
+
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

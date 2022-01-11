@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,10 +15,11 @@ namespace Warehousemanagement.Pages.Items
     public class CreateModel : PageModel
     {
         private readonly Warehousemanagement.Data.WarehousemanagementContext _context;
-
-        public CreateModel(Warehousemanagement.Data.WarehousemanagementContext context)
+        private readonly INotyfService _noty;
+        public CreateModel(Warehousemanagement.Data.WarehousemanagementContext context, INotyfService noty)
         {
             _context = context;
+            _noty = noty;
         }
 
         public IActionResult OnGet()
@@ -55,14 +57,17 @@ namespace Warehousemanagement.Pages.Items
                 _context.Attach(Warehouse).State = EntityState.Modified;
                 _context.Item.Add(Item);
                 await _context.SaveChangesAsync();
+                _noty.Success("Item Added to "+Warehouse.Name+" Ware House Successfully", 5);
+                return RedirectToPage("./Index");
             }
             else
             {
-
+                int volumewar = Warehouse.Volume;
+                _noty.Error("Ware House is out of Volume", 5);
             }
 
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Create");
         }
     }
 }

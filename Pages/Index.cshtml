@@ -5,63 +5,103 @@
 }
 
 
-<table width="100%">
+<head>
 
-    <tr>
-        <td>
-            <h1> Welcome to Ware House Management System</h1>
-        </td>
-        <td><img class="imgb" src="~/Asset 1.png"width="500px"></td>
-    </tr>
-  
-</table>
+    <title>Document</title>
 
-<table  width="100%" align="center">
-
-    <tr>
-        
-        <td>
-            <center>
-                <h5>Number of Products</h5>
-                @Model.ProductCount
-            </center>
+    <style>
+       
+        .container {
+            display: inline-block;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            width: 250px;
+            height: 250px;
+            border-radius: 23px;
+            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
 
 
-        </td>
-        <td>
-            <center>
-                <h5>Number of Items</h5>
-                @Model.ItemCount
+        .container1 {
+            display: inline-block;
+            text-align: center;
+            margin-left: 23px;
+            background-color: rgb(255, 255, 255);
+            width: 250px;
+            height: 250px;
+            border-radius: 23px;
+            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
 
-            </center>
+        .big {
+            margin-top: 23px;
+            display: inline-block;
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            /* background-image: linear-gradient(56deg,#0d0d0e,#29a9e4);
+          */
+            width: 530px;
+            height: 250px;
+            border-radius: 23px;
+            border-color: black;
+            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
 
-        </td>
-        <td>
-            <center>
-                <h5>Number of WareHouses</h5>
-                @Model.WarehouseCount
-            </center>
+            .big:hover, .container:hover, .container1:hover {
+                background-color: rgb(235, 235, 235);
+                transition: 0.6s;
+            }
 
-        </td>
+        .mainmargin {
+            margin-top:3%;
+            margin-left: 35%;
+        }
+
+        a
+        {
+            text-decoration: none;
+        }
+
+        h5 {
+            color: #131e33;
+            top: 22%;
+            margin-top: 55px;
+            text-align: center;
+            align-content: center;
+            font-weight: bold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 100px;
+        }
+
+        p {
+            font-weight: bold;
+           
+            text-align: center;
+            
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body >
+    <div class="mainmargin">
+        <div class="container">
+            <h5>@Model.ProductCount</h5>
+            <p>Products</p>
+        </div>
+
+        <div class="container1">
+            <h5>@Model.ItemCount</h5>
+            <p>Items</p>
+        </div>
+        <br>
+        <div class="big">
+            <h5>@Model.WarehouseCount</h5>
+            <p>Ware House</p>
+        </div>
+        </div>
 
 
-
-    </tr>
-</table>
-
-<style>
-    h1 {
-        color: #2b466b;
-    }
-
-    h5 {
-        background-color: #2b466b;
-        color:white;
-        font-weight:bold;
-    }
-    td{
-        font-weight:bold
-    }
-</style>
-
-
+</body>

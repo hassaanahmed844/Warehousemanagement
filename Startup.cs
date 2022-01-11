@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Warehousemanagement.Data;
+using AspNetCoreHero.ToastNotification;
 
 namespace Warehousemanagement
 {
@@ -25,8 +26,15 @@ namespace Warehousemanagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
 
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddNotyf (m=>
+           {
+               m.DurationInSeconds = 10;
+               m.IsDismissable = true;
+               m.Position = NotyfPosition.BottomRight;
+
+           });
             services.AddDbContext<WarehousemanagementContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WarehousemanagementContext")));
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,10 +14,11 @@ namespace Warehousemanagement.Pages.Products
     public class CreateModel : PageModel
     {
         private readonly Warehousemanagement.Data.WarehousemanagementContext _context;
-
-        public CreateModel(Warehousemanagement.Data.WarehousemanagementContext context)
+        private readonly INotyfService _noty;
+        public CreateModel(Warehousemanagement.Data.WarehousemanagementContext context, INotyfService noty)
         {
             _context = context;
+            _noty = noty;
         }
 
         public IActionResult OnGet()
@@ -37,7 +39,7 @@ namespace Warehousemanagement.Pages.Products
 
             _context.Product.Add(Product);
             await _context.SaveChangesAsync();
-
+            _noty.Success("Product Added Successfully", 5);
             return RedirectToPage("./Index");
         }
     }

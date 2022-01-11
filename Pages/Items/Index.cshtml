@@ -4,15 +4,40 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .create {
+        text-align: center;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin: 25px;
+        margin-left: 83%;
+        margin-right: 7%;
+        display: block;
+        text-decoration: none;
+        border-radius: 23px;
+        color: white;
+        text-decoration: none;
+        background-color: #202f44;
+    }
+
+
+        .create:hover {
+            color: white;
+            text-decoration: none;
+            background-color: #2B466B;
+            box-shadow: 2px 8px 8px rgba(17, 17, 17, 0.12), 0 3px 8px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+</style>
 
 <h1 style="color: #2B466B">Items</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+<a class="create" asp-page="Create">Add New</a>
+
 <table class="table">
     <thead>
-        <tr style="color: #2B466B">
+        <tr style="color: white; background-color: #202f44;">
             <th>
                 @Html.DisplayNameFor(model => model.Item[0].Product)
             </th>
@@ -34,40 +59,41 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Item) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Id)
-            </td>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Id)
+                </td>
 
-            <td>
-                @{
-                    Model.Product = Model.AllProducts.FirstOrDefault(m => m.Id == item.ProductId);
-                }
-                @(Model.Product.Name)
-            </td>
+                <td>
+                    @{
+                        Model.Product = Model.AllProducts.FirstOrDefault(m => m.Id == item.ProductId);
+                    }
+                    @(Model.Product.Name)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Expiry)
-            </td>
-            <td>
-                @{
-                    Model.Product = Model.AllProducts.FirstOrDefault(m => m.Id == item.ProductId);
-                }
-                @(Model.Product.Length* Model.Product.Width* Model.Product.Height)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Expiry)
+                </td>
+                <td>
+                    @{
+                        Model.Product = Model.AllProducts.FirstOrDefault(m => m.Id == item.ProductId);
+                    }
+                    @(Model.Product.Length* Model.Product.Width* Model.Product.Height)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Wearhouse.Name)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wearhouse.Name)
+                </td>
 
 
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id"><img src="~/icons8-edit-24.png" /></a> |
-                <a asp-page="./Details" asp-route-id="@item.Id"><img src="~/icons8-details-24.png" /></a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id"><img src="~/icons8-delete-24.png" /></a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id"><img src="~/icons8-edit-24.png" /></a> 
+                    <a asp-page="./Details" asp-route-id="@item.Id"><img src="~/icons8-details-24.png" /></a> 
+                    <a asp-page="./Delete" asp-route-id="@item.Id"><img src="~/icons8-delete-24.png" /></a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
